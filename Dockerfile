@@ -10,4 +10,8 @@ RUN bundle install
 
 COPY . .
 
-CMD ["./your-daemon-or-script.rb"]
+RUN gem install rails
+
+EXPOSE 3000
+
+CMD rails s
