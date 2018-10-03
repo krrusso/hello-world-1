@@ -6,7 +6,7 @@ jobs:
       - checkout
       - run: echo ${GCP_AUTH} | base64 -d > ${HOME}/gcp-key.json 
       - run: echo 'export GIT_SHA1="$CIRCLE_SHA1"' >> $BASH_ENV  
-      - run: docker build --rm=false -t gcr.io/hello-world/hello-world:$CIRCLE_SHA1 .
+      - run: docker build --rm=false -t gcr.io/hello-world-218318/hello-world:$CIRCLE_SHA1 .
       - run: gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
-      - run: gcloud --quiet config set project hello-world
-      - run: gcloud docker -- push gcr.io/hello-world/hello-world:$CIRCLE_SHA1
+      - run: gcloud --quiet config set project hello-world-218318
+      - run: gcloud docker -- push gcr.io/hello-world-218318/hello-world:$CIRCLE_SHA1
